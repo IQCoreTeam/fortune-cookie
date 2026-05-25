@@ -8,7 +8,6 @@ import Sparkles from "./Sparkles"
 import FortuneCookie, { type CookieState } from "./FortuneCookie"
 import FortuneSlip from "./FortuneSlip"
 import Confetti from "./Confetti"
-import HistoryDrawer from "./HistoryDrawer"
 import ShareButton from "./ShareButton"
 import SoundToggle, { useSoundEngine } from "./SoundToggle"
 import WalletConnect from "./WalletConnect"
@@ -32,7 +31,7 @@ export default function CookiePage() {
   const [submitOpen, setSubmitOpen] = useState(false)
 
   const { current: fortune, pickFortune } = useFortune()
-  const { history, addEntry, clearHistory } = useHistory()
+  const { addEntry } = useHistory()
   const { playCrack, playChime } = useSoundEngine(soundEnabled)
 
   const handleCookieClick = useCallback(async () => {
@@ -231,8 +230,6 @@ export default function CookiePage() {
           )}
         </AnimatePresence>
       </div>
-
-      <HistoryDrawer history={history} onClear={clearHistory} />
 
       <SubmitFortuneModal
         open={submitOpen}
