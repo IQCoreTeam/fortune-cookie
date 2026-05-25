@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Design tokens ─── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #1A1033;
+  --color-surface: #2D1B5E;
+  --color-primary: #FF9F43;
+  --color-accent: #A78BFA;
+  --color-gold: #FFD700;
+  --color-text: #FFF5E4;
+  --color-muted: #C4B5FD;
+
+  --font-fredoka: var(--font-fredoka);
+  --font-nunito: var(--font-nunito);
+  --font-vt323: var(--font-vt323);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  background: radial-gradient(ellipse at center, #2D1B5E 0%, #1A1033 45%, #0D0821 100%);
+  background-attachment: fixed;
+  color: #FFF5E4;
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Keyframes ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+  50%       { transform: translateY(-8px) rotate(-1.5deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes cookieGlow {
+  from { box-shadow: 0 0 20px #FF9F43aa; }
+  to   { box-shadow: 0 0 60px #FF9F43ee, 0 0 120px #FF9F4355; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textPulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Utilities ─── */
+.animate-float {
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.animate-float-slip {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-text-pulse {
+  animation: textPulse 2.4s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out both;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

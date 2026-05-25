@@ -5,15 +5,25 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "init-table": "tsx scripts/init-table.ts",
+    "seed-fortunes": "tsx scripts/seed-fortunes.ts"
   },
   "dependencies": {
+    "@iqlabs-official/ethereum-sdk": "^0.2.2",
+    "@phosphor-icons/react": "^2.1.10",
+    "canvas-confetti": "^1.9.4",
+    "ethers": "^6.16.0",
+    "framer-motion": "^12.40.0",
+    "html-to-image": "^1.11.13",
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tsx": "^4.22.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
