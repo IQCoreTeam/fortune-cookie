@@ -27,7 +27,7 @@ const categoryStyle: Record<string, { bg: string; color: string }> = {
 export default function CookiePage() {
   const [cookieState, setCookieState] = useState<CookieState>("idle")
   const [confettiBurst, setConfettiBurst] = useState(false)
-  const [soundEnabled, setSoundEnabled] = useState(false)
+  const [soundEnabled, setSoundEnabled] = useState(true)
   const [category, setCategory] = useState<string>("")
   const [submitOpen, setSubmitOpen] = useState(false)
 
